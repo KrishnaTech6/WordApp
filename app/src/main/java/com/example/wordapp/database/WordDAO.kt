@@ -1,5 +1,6 @@
 package com.example.wordapp.database
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -14,5 +15,5 @@ interface WordDAO {
     suspend fun insertWord(word: Word)
 
     @Query("SELECT * FROM words")
-    suspend fun getAllWords(): List<Word>
+    fun getAllWords(): LiveData<List<Word>>
 }

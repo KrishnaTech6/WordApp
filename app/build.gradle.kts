@@ -43,6 +43,7 @@ android {
 
 dependencies {
     implementation(libs.hilt.android)
+    implementation(libs.engage.core)
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -55,8 +56,16 @@ dependencies {
 
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.room.compiler)
-
     // To use Kotlin annotation processing tool (kapt)
     kapt(libs.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.activity.ktx)
+
+    implementation ("com.afollestad.material-dialogs:input:3.3.0")
+    implementation ("com.afollestad.material-dialogs:core:3.3.0")
 
 }
