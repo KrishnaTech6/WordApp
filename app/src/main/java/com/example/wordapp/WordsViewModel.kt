@@ -28,6 +28,14 @@ constructor(private val wordRepository: WordRepository) : ViewModel() {
         }
     }
 
+    fun updateWord(word: Word) = liveData{
+        try {
+            wordRepository.updateWord(word)
+            emit(true)
+        } catch (e: Exception) {
+            emit(false)
+    }}
+
     fun getAllWords() = wordRepository.getAllWords()
 
 

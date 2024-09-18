@@ -12,17 +12,29 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp">
+        android:layout_height="wrap_content">
 
         <TextView
             style="@style/TextAppearance.MaterialComponents.Headline5"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Hello how are you i am good what about you "
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/edit_word"
+            android:layout_margin="8dp"
             android:text="@{word.word}" />
+        <ImageView
+            android:id="@+id/edit_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/edit"
+            app:layout_constraintEnd_toStartOf="@id/delete_word"
+            android:src="@drawable/baseline_edit_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="16dp"/>
         <ImageView
             android:id="@+id/delete_word"
             android:layout_width="wrap_content"

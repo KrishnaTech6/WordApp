@@ -2,7 +2,6 @@ package com.example.wordapp
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.input.input
 import com.example.wordapp.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,6 +39,7 @@ class WordsActivity : AppCompatActivity() {
 
         viewModel.getAllWords().observe(this){
             wordsAdapter.submitList(it)
+            wordsAdapter.notifyDataSetChanged() // Force the adapter to refresh
         }
     }
 
@@ -56,9 +57,9 @@ class WordsActivity : AppCompatActivity() {
             input { dialog, text ->
                 viewModel.saveWord(text.toString()).observe(this@WordsActivity){
                     if (it)
-                    Toast.makeText(this@WordsActivity, "Success", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, "Saved Successfully", Snackbar.LENGTH_SHORT).show()
                     else
-                    Toast.makeText(this@WordsActivity, "Success", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, "Error Saving", Snackbar.LENGTH_SHORT).show()
                 }
             }
             positiveButton(text = "Submit")

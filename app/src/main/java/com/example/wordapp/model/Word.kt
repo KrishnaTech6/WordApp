@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 data class Word (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val word: String
+    var word: String
 )

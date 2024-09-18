@@ -16,4 +16,8 @@ class WordRepositoryImpl(private val wordDAO: WordDAO):WordRepository {
     override  fun getAllWords(): LiveData<List<Word>> {
         return wordDAO.getAllWords()
     }
+
+    override suspend fun updateWord(word: Word) {
+        return wordDAO.updateWord(word)
+    }
 }
