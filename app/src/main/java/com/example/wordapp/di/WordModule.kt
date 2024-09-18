@@ -16,6 +16,4 @@ object WordModule {
     fun provideWordRepository(wordDAO: WordDAO): WordRepository {
         return WordRepositoryImpl(wordDAO)
     }
-
-
 }

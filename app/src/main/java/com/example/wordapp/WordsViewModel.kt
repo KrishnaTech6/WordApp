@@ -19,6 +19,15 @@ constructor(private val wordRepository: WordRepository) : ViewModel() {
         }
     }
 
+    fun deleteWord(word: Word) = liveData{
+        try {
+            wordRepository.deleteWord(word)
+            emit(true)
+        } catch (e: Exception) {
+            emit(false)
+        }
+    }
+
     fun getAllWords() = wordRepository.getAllWords()
 
 

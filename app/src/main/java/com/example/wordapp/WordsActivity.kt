@@ -40,12 +40,11 @@ class WordsActivity : AppCompatActivity() {
         viewModel.getAllWords().observe(this){
             wordsAdapter.submitList(it)
         }
-
     }
 
     private fun setUpRecyclerView() {
         binding.wordsRv.apply {
-            wordsAdapter = WordsAdapter()
+            wordsAdapter = WordsAdapter(viewModel)
             layoutManager = LinearLayoutManager(this@WordsActivity)
             adapter = wordsAdapter
         }

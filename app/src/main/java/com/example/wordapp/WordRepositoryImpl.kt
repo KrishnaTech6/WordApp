@@ -9,6 +9,10 @@ class WordRepositoryImpl(private val wordDAO: WordDAO):WordRepository {
         wordDAO.insertWord(word)
     }
 
+    override suspend fun deleteWord(word: Word) {
+        wordDAO.deleteWord(word)
+    }
+
     override  fun getAllWords(): LiveData<List<Word>> {
         return wordDAO.getAllWords()
     }
